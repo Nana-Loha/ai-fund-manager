@@ -33,6 +33,33 @@ export ANTHROPIC_API_KEY=your-key-here
 streamlit run app/streamlit_app.py
 ```
 
+### 4. Deploy to Streamlit Cloud (optional)
+
+To deploy your app publicly to **Streamlit Cloud**:
+
+1. **Push this repo to your GitHub account** (already done ✅)
+   - Your repo: https://github.com/Nana-Loha/ai-fund-manager (private)
+
+2. **Connect to Streamlit Cloud:**
+   - Go to https://share.streamlit.io
+   - Sign in with GitHub
+   - Click **"New app"**
+   - Select:
+     - **Repository:** `Nana-Loha/ai-fund-manager`
+     - **Branch:** `main`
+     - **Main file path:** `app/streamlit_app.py`
+
+3. **Set secrets (if using Claude API):**
+   - In the Streamlit Cloud dashboard, go to **App settings → Secrets**
+   - Add:
+     ```toml
+     ANTHROPIC_API_KEY = "your-anthropic-api-key-here"
+     ```
+
+4. **Deploy!**
+   - Click **"Deploy"** and wait ~2 minutes
+   - Your app will be live at: `https://share.streamlit.io/<username>/<app-name>`
+
 ---
 
 ## What it does
