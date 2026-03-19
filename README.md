@@ -85,13 +85,11 @@ ai-fund-manager/
 | plotly | Interactive charts |
 | Anthropic Claude API | AI memo generation and news sentiment analysis |
 
-### Academic References
-- Vaswani et al. (2017) — *Attention Is All You Need* — arXiv:1706.03762
-- Yang et al. (2020) — *Qlib: AI-Oriented Quantitative Investment Platform* — arXiv:2009.11189
-- Liu et al. (2020) — *FinRL: Deep RL for Automated Stock Trading* — arXiv:2011.09607
+### References
 
-### Reputable Website
-- Investopedia — Technical Analysis: https://www.investopedia.com/terms/t/technicalanalysis.asp
+- Yang et al. (2023) — Instruct-FinGPT: Financial Sentiment Analysis by Instruction Tuning of General-Purpose LLMs — arXiv:2306.12659
+- Kim, Muhn & Nikolaev (2024) — Financial Statement Analysis with Large Language Models — arXiv:2407.17866
+- Investopedia — Technical Analysis — https://www.investopedia.com/terms/t/technicalanalysis.asp
 
 ---
 
