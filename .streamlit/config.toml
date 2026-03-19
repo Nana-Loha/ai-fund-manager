@@ -7,7 +7,6 @@ font = "sans serif"
 
 [client]
 showErrorDetails = false
-logger.level = "info"
 
 [server]
 headless = true
