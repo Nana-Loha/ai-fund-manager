@@ -1,0 +1,44 @@
+{
+  "AAPL": [
+    "Apple beats Q4 earnings expectations with record iPhone revenue and strong Services growth.",
+    "Apple expands AI partnership with OpenAI, integrating on-device intelligence across product line.",
+    "Analyst upgrade: Morgan Stanley raises Apple price target citing strong demand cycle.",
+    "Apple reports record $90B buyback program, signaling strong cash flow confidence.",
+    "Supply chain pressure eases as Apple diversifies manufacturing to India and Vietnam."
+  ],
+  "MSFT": [
+    "Microsoft Azure revenue growth accelerates to 31%, beating analyst estimates.",
+    "Microsoft Copilot expansion drives enterprise software demand to record levels.",
+    "Microsoft beats earnings with strong cloud momentum and AI product adoption.",
+    "Partnership with OpenAI deepens as Microsoft integrates GPT-4 across Office suite.",
+    "Microsoft raises dividend 10%, reflecting strong free cash flow generation."
+  ],
+  "NVDA": [
+    "NVIDIA reports record data center revenue driven by surging AI chip demand.",
+    "NVIDIA H100 GPU backlog extends to 12 months as hyperscaler demand accelerates.",
+    "NVIDIA announces Blackwell architecture, expanding AI compute leadership.",
+    "Strong momentum in AI training workloads lifts NVIDIA revenue outlook.",
+    "NVIDIA expands partnership with major cloud providers for next-gen AI infrastructure."
+  ],
+  "TSLA": [
+    "Tesla faces price pressure as EV competition intensifies from Chinese manufacturers.",
+    "Tesla misses Q3 delivery estimates amid demand slowdown in key markets.",
+    "Investigation into Tesla autopilot safety practices widens, adding regulatory risk.",
+    "Tesla gross margin decline raises concerns about long-term profitability outlook.",
+    "Elon Musk distraction risk cited by analysts as governance and focus pressure mounts."
+  ],
+  "AMZN": [
+    "Amazon AWS revenue growth reaccelerates, beating estimates with strong enterprise demand.",
+    "Amazon expands AI model offerings on Bedrock platform, competing directly with Azure.",
+    "Amazon beats profit expectations as cost cuts and logistics efficiency improvements take hold.",
+    "Amazon Prime membership growth remains strong, supporting advertising revenue expansion.",
+    "Record holiday season performance drives strong Q4 outlook for Amazon retail segment."
+  ],
+  "DEFAULT": [
+    "Company reports quarterly earnings in line with analyst expectations.",
+    "Management reaffirms full-year guidance amid mixed macroeconomic conditions.",
+    "Analyst maintains neutral rating, citing balanced risk and reward profile.",
+    "Sector rotation and broader market volatility create near-term uncertainty.",
+    "Company continues investing in long-term growth initiatives despite short-term pressure."
+  ]
+}
