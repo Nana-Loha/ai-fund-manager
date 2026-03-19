@@ -1,11 +1,15 @@
 # AlphaMemo — AI Research Copilot
 
+> **AI 405 - AI Impacts and Applications | Final Project**
+> **Author:** Pitchanan Lohavanichbutr
+> **Bellevue College | March 2026**
+
 An educational AI application that combines market price data, financial headlines,
 and technical features to generate structured investment research memos and
-paper-trading signals. Built as a class project for an AI Ethics course.
+practice-trading signals. Built as a class project for an AI Ethics course.
 
-**This is an educational prototype for research support and paper trading only.
-It is not investment advice and does not place live trades.**
+> ⚠️ **This is an educational prototype for practice trading and research only.
+> It is not investment advice and does not place live trades.**
 
 ---
 
@@ -31,13 +35,12 @@ streamlit run app/streamlit_app.py
 
 ## What it does
 
-1. **Fetches historical OHLCV price data** via yfinance (falls back to synthetic data)
-2. **Loads financial headlines** from a local JSON dataset
-3. **Computes technical features** — momentum, moving averages, volatility, volume
-4. **Generates a structured research memo** — using Claude API if a key is provided,
-   otherwise a transparent rule-based engine
-5. **Backtests the long/neutral/short strategy** with transaction cost assumptions
-6. **Displays results** in a Streamlit dashboard with charts and metrics
+1. **Fetches real stock price data** via Yahoo Finance (yfinance)
+2. **Loads recent news headlines** from Yahoo Finance
+3. **Computes technical signals** — momentum, moving averages, volatility, volume
+4. **Generates a structured research summary** — using Claude API if a key is provided, otherwise a transparent rule-based formula
+5. **Simulates historical strategy performance** with trading fee assumptions
+6. **Displays results** in a Streamlit dashboard with plain-English explanations
 
 ---
 
@@ -49,10 +52,10 @@ ai-fund-manager/
 │   ├── streamlit_app.py      # Main UI
 │   ├── config.py             # Settings
 │   ├── data/
-│   │   ├── market_data.py    # Price data loader
-│   │   └── text_data.py      # Headlines loader
+│   │   ├── market_data.py    # Price data loader (yfinance)
+│   │   └── text_data.py      # News headlines loader
 │   ├── features/
-│   │   └── technicals.py     # Feature engineering
+│   │   └── technicals.py     # Technical signal calculation
 │   ├── llm/
 │   │   ├── summarize.py      # Memo generator (Claude API + fallback)
 │   │   └── stance_engine.py  # Rule-based signal scoring
@@ -61,7 +64,7 @@ ai-fund-manager/
 │       └── metrics.py        # Performance metrics
 ├── data/
 │   └── eval/
-│       └── sample_news.json  # Sample financial headlines
+│       └── sample_news.json  # Fallback sample headlines
 ├── requirements.txt
 ├── .env.example
 └── README.md
@@ -75,32 +78,52 @@ ai-fund-manager/
 |------|---------|
 | Python 3.11 | Core language |
 | Streamlit | Web UI framework |
-| yfinance | Historical market data |
+| yfinance | Real-time stock prices and news |
 | pandas / numpy | Data processing |
 | plotly | Interactive charts |
-| Anthropic Claude API | LLM memo generation |
-| Claude (claude.ai) | AI coding assistance |
+| Anthropic Claude API | AI memo generation and news sentiment analysis |
+
+### Academic References
+- Vaswani et al. (2017) — *Attention Is All You Need* — arXiv:1706.03762
+- Yang et al. (2020) — *Qlib: AI-Oriented Quantitative Investment Platform* — arXiv:2009.11189
+- Liu et al. (2020) — *FinRL: Deep RL for Automated Stock Trading* — arXiv:2011.09607
+
+### Reputable Website
+- Investopedia — Technical Analysis: https://www.investopedia.com/terms/t/technicalanalysis.asp
 
 ---
 
 ## AI Tools Disclosure
 
-This project was developed with assistance from:
-- **Claude (Anthropic)** — used for code generation, architecture suggestions, and debugging
-- **Anthropic Claude API** — used at runtime to generate structured research memos
+| Tool | Role |
+|------|------|
+| Claude (claude.ai) | AI assistant for architecture design, debugging, ethical analysis, and iterative development review |
+| GitHub Copilot (VS Code) | In-editor code completion and suggestions |
+| Anthropic Claude API | Runtime — generates research memos and analyzes news sentiment |
 
-The rule-based stance engine and backtest logic were reviewed and validated manually.
-All ethical safeguards (paper trading only, confidence caps, cost assumptions,
-look-ahead bias prevention) were explicitly designed and verified by the developer.
+> The developer led all product decisions, testing, and ethical analysis.
+> AI tools assisted but did not replace human judgment.
 
 ---
 
 ## Ethical Safeguards
 
-- ✅ Paper trading only — no live brokerage integration
+- ✅ Practice mode only — no real money or live trading
+- ✅ Cannot buy or sell real stocks
+- ✅ AI confidence limited to 85% maximum to prevent overconfidence
+- ✅ Trading fees included in all simulated results
+- ✅ Signals use previous day's data to prevent look-ahead bias
+- ✅ Analysis method always disclosed (Claude AI vs basic formula)
+- ✅ All AI decisions explained in plain English (Explainable AI)
+- ✅ Works for any stock — no favorites or bias toward specific tickers
 - ✅ Prominent disclaimers on every page
-- ✅ Confidence capped at 85% to prevent overconfidence
-- ✅ Transaction costs included in all backtest results
-- ✅ Positions shifted one day forward to prevent look-ahead bias
-- ✅ Memo source disclosed (Claude API vs rule-based)
-- ✅ Strategy rules shown in plain language for transparency
+
+---
+
+## Known Limitations
+
+- News headlines from Yahoo Finance may include general market news, not only company-specific news
+- Sentiment keyword list (basic mode) was manually defined — not statistically trained
+- The ±2 signal threshold and 45% confidence baseline are design choices, not optimized values
+- Price data may be delayed up to 15 minutes
+- Company data availability varies for small-cap stocks
