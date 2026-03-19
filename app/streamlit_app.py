@@ -1,9 +1,16 @@
 from __future__ import annotations
 
 import os
+import sys
+from pathlib import Path
 import pandas as pd
 import plotly.graph_objects as go
 import streamlit as st
+
+# Ensure repo root is importable when this file is launched directly (e.g. Streamlit Cloud).
+repo_root = Path(__file__).resolve().parents[1]
+if str(repo_root) not in sys.path:
+    sys.path.insert(0, str(repo_root))
 
 from app.backtest.metrics import compute_metrics
 from app.backtest.strategy import run_backtest
