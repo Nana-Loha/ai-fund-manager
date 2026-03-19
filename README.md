@@ -1,7 +1,9 @@
 # AlphaMemo — AI Research Copilot
 
 > **AI 405 - AI Impacts and Applications | Final Project**
+>
 > **Author:** Pitchanan Lohavanichbutr
+>
 > **Bellevue College | March 2026**
 
 An educational AI application that combines market price data, financial headlines,
