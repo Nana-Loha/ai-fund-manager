@@ -47,7 +47,7 @@ To deploy your app publicly to **Streamlit Cloud**:
    - Select:
      - **Repository:** `Nana-Loha/ai-fund-manager`
      - **Branch:** `main`
-     - **Main file path:** `streamlit_app.py`
+     - **Main file path:** `app/streamlit_app.py`
 
 3. **Set secrets (if using Claude API):**
    - In the Streamlit Cloud dashboard, go to **App settings → Secrets**
