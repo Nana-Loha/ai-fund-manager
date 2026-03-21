@@ -37,6 +37,7 @@ def build_memo(ticker: str, headlines: list[str], snapshot: dict[str, float]) ->
         confidence    = min(0.85, 0.45 + abs(total_score) * 0.08)
         llm_analysis  = _rule_based_analysis(ticker, headlines, snapshot, stance, confidence)
         memo_source   = "rule-based"
+        from app.llm.stance_engine import POSITIVE_WORDS, NEGATIVE_WORDS
         found_positive = []
         found_negative = []
         for headline in headlines:
