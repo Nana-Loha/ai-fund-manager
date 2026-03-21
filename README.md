@@ -15,58 +15,13 @@ practice-trading signals. Built as a class project for an AI Ethics course.
 
 ---
 
-## How to Run
-
-### 1. Install dependencies
-```bash
-pip install -r requirements.txt
-```
-
-### 2. Set your API key (optional — app works without it)
-```bash
-export ANTHROPIC_API_KEY=your-key-here
-# OR enter it directly in the app sidebar
-```
-
-### 3. Start the app
-```bash
-streamlit run streamlit_app.py
-```
-
-### 4. Deploy to Streamlit Cloud (optional)
-
-To deploy your app publicly to **Streamlit Cloud**:
-
-1. **Push this repo to your GitHub account** (already done ✅)
-   - Your repo: https://github.com/Nana-Loha/ai-fund-manager (private)
-
-2. **Connect to Streamlit Cloud:**
-   - Go to https://share.streamlit.io
-   - Sign in with GitHub
-   - Click **"New app"**
-   - Select:
-     - **Repository:** `Nana-Loha/ai-fund-manager`
-     - **Branch:** `main`
-     - **Main file path:** `app/streamlit_app.py`
-
-3. **Set secrets (if using Claude API):**
-   - In the Streamlit Cloud dashboard, go to **App settings → Secrets**
-   - Add:
-     ```toml
-     ANTHROPIC_API_KEY = "your-anthropic-api-key-here"
-     ```
-
-4. **Deploy!**
-   - Click **"Deploy"** and wait ~2 minutes
-   - Your app will be live at: `https://share.streamlit.io/<username>/<app-name>`
-
-### 4. Open the App
+## 🚀 Open the App
 
 The app is live and ready to use — no installation needed.
 
-🔗 **[Open AlphaMemo on Streamlit Cloud](https://share.streamlit.io/nana-loha/ai-fund-manager)**
+🔗 **[Open AlphaMemo on Streamlit Cloud](https://ai-fund-manager-bplg9p6xjaezrfjcwjhwt7.streamlit.app/)**
 
-#### How to use:
+### How to use:
 1. Open the link above in your browser
 2. Enter a stock ticker (e.g. `AAPL`, `TSLA`, `NVDA`) in the sidebar
 3. *(Optional)* Enter your Anthropic API key in the sidebar to enable AI-powered memos
@@ -74,18 +29,123 @@ The app is live and ready to use — no installation needed.
 
 ---
 
-## What it does
+## 📋 Project Definition & Scope
 
-1. **Fetches real stock price data** via Yahoo Finance (yfinance)
-2. **Loads recent news headlines** from Yahoo Finance
-3. **Computes technical signals** — momentum, moving averages, volatility, volume
-4. **Generates a structured research summary** — using Claude API if a key is provided, otherwise a transparent rule-based formula
-5. **Simulates historical strategy performance** with trading fee assumptions
-6. **Displays results** in a Streamlit dashboard with plain-English explanations
+**AlphaMemo** is an educational tool designed to simulate how an AI-assisted fund manager might analyze stocks. It is built for students and learners who want to understand how AI can be applied to financial research — without the risks of real investing.
+
+**Core features:**
+- Fetches real stock price data via Yahoo Finance (yfinance)
+- Loads recent news headlines from Yahoo Finance
+- Computes technical signals — momentum, moving averages, volatility, volume
+- Generates a structured research memo using Claude API (or a transparent rule-based fallback)
+- Simulates historical strategy performance with trading fee assumptions
+- Displays results in a Streamlit dashboard with plain-English explanations
+
+**Out of scope:** This app cannot place real trades, manage real money, or connect to brokerage accounts.
 
 ---
 
-## Project Structure
+## 🛠️ Design & Development Process
+
+### Tools Used
+
+| Tool | Purpose |
+|------|---------|
+| Python 3.11 | Core language |
+| Streamlit | Web UI framework |
+| yfinance | Real-time stock prices and news |
+| pandas / numpy | Data processing |
+| plotly | Interactive charts |
+| Anthropic Claude API | AI memo generation and news sentiment analysis |
+
+### Steps Taken
+
+1. **Defined the problem** — identified what a fund manager needs: price data, news, and signals
+2. **Designed the architecture** — modular structure with separate layers for data, features, LLM, and backtesting
+3. **Built the data pipeline** — connected Yahoo Finance for prices and headlines
+4. **Added technical indicators** — momentum, moving averages, volatility, volume signals
+5. **Integrated Claude API** — for AI-generated memos, with a rule-based fallback when no API key is provided
+6. **Built the backtest engine** — to simulate past performance with trading fees
+7. **Deployed to Streamlit Cloud** — for easy public access
+
+### Learning Curve
+
+The biggest challenge was building a reliable fallback system — the app needed to work even without a Claude API key. This required designing a transparent rule-based formula that mirrors the AI's logic in a simpler form.
+
+### Pros & Cons of Using AI Tools for Development
+
+| Pros | Cons |
+|------|------|
+| Faster architecture decisions | Risk of over-relying on AI suggestions |
+| Faster debugging | Some suggestions needed validation before use |
+| Better code structure ideas | AI didn't always understand project-specific context |
+| Helped write documentation | Required careful human review at every step |
+
+> All product decisions, testing, and ethical analysis were led by the developer. AI tools assisted but did not replace human judgment.
+
+---
+
+## ⚖️ Ethical Impact Analysis
+
+### Potential Harms
+
+- **Over-reliance on AI signals** — Users may treat AI-generated memos as financial advice and make real monetary decisions based on them, leading to financial loss
+- **Algorithmic bias** — The sentiment keyword list (basic mode) was manually defined and may unintentionally favor certain market narratives over others
+- **Misinformation risk** — Yahoo Finance news may include general market news unrelated to the specific stock, potentially skewing sentiment analysis
+- **Accessibility gap** — Users without financial literacy may misinterpret confidence scores as guarantees rather than estimates
+- **Data delay risk** — Price data may be delayed up to 15 minutes, which could mislead users into thinking they have real-time information
+
+### Who Is Most at Risk
+
+Students, beginner investors, and users unfamiliar with the limitations of AI in financial contexts are most vulnerable to misinterpreting the app's outputs as reliable investment advice.
+
+---
+
+## 🔒 Data Privacy & Collection
+
+- **No personal data is collected** — the app does not ask for names, emails, or account information
+- **No data is stored** — all analysis is done in-session and discarded when the user closes the app
+- **API key handling** — the Anthropic API key is entered locally by the user and sent only directly to Anthropic's servers; it is never logged or stored by this app
+- **Public data only** — all stock prices and news headlines are sourced from Yahoo Finance's publicly available data
+- **No tracking** — the app does not use cookies, analytics, or user tracking of any kind
+
+---
+
+## 🛡️ Ethical Mitigation Strategies
+
+| Risk | Mitigation |
+|------|-----------|
+| Users treating signals as financial advice | Prominent disclaimers on every page; app described as educational only |
+| AI overconfidence | AI confidence capped at 85% maximum to prevent false certainty |
+| Look-ahead bias in backtesting | Signals use only previous day's data |
+| Hidden methodology | Analysis method always disclosed — users can see whether Claude AI or the basic formula generated the result |
+| Unfair fee assumptions | Trading fees included in all simulated results to reflect realistic costs |
+| Lack of explainability | All AI decisions explained in plain English (Explainable AI principle) |
+| Ticker bias | App works for any valid stock ticker — no favorites or hardcoded preferences |
+
+---
+
+## 🔮 Future Considerations & Scalability
+
+### Short-Term Improvements
+- Replace the manually-defined sentiment keyword list with a statistically trained sentiment model (e.g., FinBERT)
+- Add support for portfolio-level analysis across multiple stocks simultaneously
+- Improve news filtering to return only company-specific headlines, not general market news
+
+### Long-Term Scalability
+- Integrate SEC filings (10-K, 10-Q) for deeper fundamental analysis alongside technical signals
+- Add user authentication to allow saving and comparing research memos over time
+- Support international markets and currencies beyond US equities
+- Build an API layer so other developers can integrate AlphaMemo's signals into their own tools
+
+### Ethical Considerations for Scaling
+- If this app were to serve a large user base, independent auditing of AI signal accuracy would be required
+- A feedback mechanism should be added so users can report misleading or harmful outputs
+- Regulatory compliance (e.g., SEC disclaimer requirements) would need to be reviewed before any commercial deployment
+
+---
+
+## 📁 Project Structure
 
 ```
 ai-fund-manager/
@@ -113,26 +173,7 @@ ai-fund-manager/
 
 ---
 
-## Tools & Resources Used
-
-| Tool | Purpose |
-|------|---------|
-| Python 3.11 | Core language |
-| Streamlit | Web UI framework |
-| yfinance | Real-time stock prices and news |
-| pandas / numpy | Data processing |
-| plotly | Interactive charts |
-| Anthropic Claude API | AI memo generation and news sentiment analysis |
-
-### References
-
-- Yang et al. (2023) — Instruct-FinGPT: Financial Sentiment Analysis by Instruction Tuning of General-Purpose LLMs — arXiv:2306.12659
-- Kim, Muhn & Nikolaev (2024) — Financial Statement Analysis with Large Language Models — arXiv:2407.17866
-- Investopedia — Technical Analysis — https://www.investopedia.com/terms/t/technicalanalysis.asp
-
----
-
-## AI Tools Disclosure
+## 🤖 AI Tools Disclosure
 
 | Tool | Role |
 |------|------|
@@ -145,21 +186,15 @@ ai-fund-manager/
 
 ---
 
-## Ethical Safeguards
+## 📚 References
 
-- ✅ Practice mode only — no real money or live trading
-- ✅ Cannot buy or sell real stocks
-- ✅ AI confidence limited to 85% maximum to prevent overconfidence
-- ✅ Trading fees included in all simulated results
-- ✅ Signals use previous day's data to prevent look-ahead bias
-- ✅ Analysis method always disclosed (Claude AI vs basic formula)
-- ✅ All AI decisions explained in plain English (Explainable AI)
-- ✅ Works for any stock — no favorites or bias toward specific tickers
-- ✅ Prominent disclaimers on every page
+- Yang et al. (2023) — *Instruct-FinGPT: Financial Sentiment Analysis by Instruction Tuning of General-Purpose LLMs* — arXiv:2306.12659
+- Kim, Muhn & Nikolaev (2024) — *Financial Statement Analysis with Large Language Models* — arXiv:2407.17866
+- Investopedia — Technical Analysis — https://www.investopedia.com/terms/t/technicalanalysis.asp
 
 ---
 
-## Known Limitations
+## ✅ Known Limitations
 
 - News headlines from Yahoo Finance may include general market news, not only company-specific news
 - Sentiment keyword list (basic mode) was manually defined — not statistically trained
