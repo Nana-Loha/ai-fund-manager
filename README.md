@@ -19,7 +19,7 @@ practice-trading signals. Built as a class project for an AI Ethics course.
 
 The app is live and ready to use — no installation needed.
 
-🔗 [Open AlphaMemo on Streamlit Cloud](https://ai405-final-projectai-fund-manager-kszeh2nwehbfxgvhncg7kq.streamlit.app/)
+🔗 [Open AlphaMemo on Streamlit Cloud](https://ai405-final-projectai-fund-manager-bxahyfhcu45f3u79wvjrt3.streamlit.app/)
 
 ### How to use:
 1. Open the link above in your browser
