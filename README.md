@@ -60,6 +60,18 @@ To deploy your app publicly to **Streamlit Cloud**:
    - Click **"Deploy"** and wait ~2 minutes
    - Your app will be live at: `https://share.streamlit.io/<username>/<app-name>`
 
+### 4. Open the App
+
+The app is live and ready to use — no installation needed.
+
+🔗 **[Open AlphaMemo on Streamlit Cloud](https://share.streamlit.io/nana-loha/ai-fund-manager)**
+
+#### How to use:
+1. Open the link above in your browser
+2. Enter a stock ticker (e.g. `AAPL`, `TSLA`, `NVDA`) in the sidebar
+3. *(Optional)* Enter your Anthropic API key in the sidebar to enable AI-powered memos
+4. Click **"Analyze"** to generate your research memo
+
 ---
 
 ## What it does
