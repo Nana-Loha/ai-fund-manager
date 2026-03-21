@@ -469,13 +469,13 @@ with left:
                 pos_text = ", ".join(f"`{w}`" for w in found_positive)
                 st.success(f"✅ **Good signals found** (+1 each):\n\n{pos_text}")
             else:
-                st.info("✅ No positive signals found in the news")
+                st.warning("No positive signals found in the news")
         with col_xai2:
             if found_negative:
                 neg_text = ", ".join(f"`{w}`" for w in found_negative)
                 st.error(f"❌ **Concerning signals found** (−1 each):\n\n{neg_text}")
             else:
-                st.info("❌ No negative signals found in the news")
+               st.warning("No negative signals found in the news")
 
         if sentiment_reason:
             st.caption(f"💬 AI summary: *{sentiment_reason}*")
@@ -485,7 +485,7 @@ with left:
         elif text_score < 0:
             st.error(f"📰 News score = **{text_score}** → News looks more negative than positive")
         else:
-            st.warning(f"📰 News score = **{text_score}** → News is neutral — no strong signal")
+            st.info(f"📰 News score = **0** → No news signals detected — score is neutral")
 
         st.divider()
 
