@@ -169,7 +169,7 @@ This is automatically deducted from all backtest results so you see realistic nu
     api_key_input = st.text_input(
         "Anthropic API key (optional)", type="password",
         help="Without a key: uses a simple formula to score news.\nWith a key: Claude AI reads and understands the news properly.",
-        value=os.environ.get("ANTHROPIC_API_KEY", ""),
+       value="",
     )
     if api_key_input:
         os.environ["ANTHROPIC_API_KEY"] = api_key_input
