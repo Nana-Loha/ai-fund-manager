@@ -39,6 +39,10 @@ def build_memo(ticker: str, headlines: list[str], snapshot: dict[str, float]) ->
         memo_source   = "rule-based"
         found_positive = []
         found_negative = []
+        for headline in headlines:
+            words = {token.strip(".,:;!?").lower() for token in headline.split()}
+            found_positive += list(words & POSITIVE_WORDS)
+            found_negative += list(words & NEGATIVE_WORDS)
 
     memo = {
         "ticker":       ticker.upper(),
